@@ -6,7 +6,7 @@ Ceci est un projet backend d'API .
 
 - **Avec Github :**
   ```bash
-  git clone https://github.com/
+  git clone https://github.com/Harlequelrah/recipe_librairy
   ```
 
 ## Utilisation
@@ -14,7 +14,7 @@ Ceci est un projet backend d'API .
 - **Se rendre dans le repertoire du projet** :
 
 ```bash
-  cd monprojet
+  cd api
 ```
 
 -  **Création d'un environnement virtuel :**
@@ -59,12 +59,11 @@ ou
 
 - Models :
 
-  -
+  - Recipe
 
 # Contact ou Support
 
 Pour des questions ou du support, contactez-moi .
 
-- **`Mail`** : **user@example.com**
+- **`Mail`** : **maximeatsoudegbovi@gmail.com**
 
-- **`Telephone`** : ****

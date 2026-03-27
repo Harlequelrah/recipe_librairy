@@ -1,4 +1,5 @@
 from app.settings.auth.models import Role, RolePrivilege, User, UserPrivilege, UserRole
+from app.recipe.models import Recipe
 from app.settings.config.database_config import (  # à importer en dernier
     database_manager,
 )
