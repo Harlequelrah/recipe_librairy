@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: recipe-library-api
+    ports:
+      - "8000:8000"
+    environment:
+      - PROJECT_NAME=recipe-library
+      - ENVIRONMENT=development
+      - DATABASE=sqlite
+      - DATABASE_NAME=database.db
+      - IS_ASYNC_ENV=False
+    volumes:
+      - ./api:/app  # For development hot reload
+      - ./data:/app/data  # Persist SQLite database
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Optional: SQLite with better persistence
+  # If you want to use a different database, uncomment and configure below
+
+  # postgres:
+  #   image: postgres:16-alpine
+  #   container_name: recipe-library-db
+  #   environment:
+  #     POSTGRES_DB: recipe_db
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: postgres
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
+
+  # redis (optional, for caching/async tasks):
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: recipe-library-redis
+  #   ports:
+  #     - "6379:6379"
+
+# volumes:
+#   postgres_data:
